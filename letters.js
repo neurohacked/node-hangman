@@ -1,21 +1,27 @@
 /**
  * Convert letters to blanks
  */
-module.exports = {
+module.exports = function() {
+    blankLetters = [];
     /**
      * Create blanks for the chosen word and handle spaces
      */
-    letters: function lettersResult() {
-        for (var i = 0; i < word.length; i++) {
-            if (word[i] === " ") {
-                guess = " ";
-                space = 1;
-            } else {
-                guess = "_";
-            }
+    var hangmanWord = function(word) {
+        this.word = word;
+        this.remainingPieces = word.split('');
+    };
 
-            letters.push(guess);
-            console.log(letters.join(' '));
+    var currentWord = new hangmanWord(chosenWord);
+    var wordPieces = currentWord.remainingPieces;
+
+    for (var i = 0; i < wordPieces.length; i++) {
+        if (wordPieces[i] === " ") {
+            guess = " ";
+            space = 1;
+        } else {
+            guess = "_";
         }
+        blankLetters.push(guess);
     }
+    console.log(blankLetters.join(' '));
 };

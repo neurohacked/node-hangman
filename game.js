@@ -2,21 +2,18 @@
  * Word Select
  */
 module.exports = function() {
-    letters = [];
     guesses = [];
-    counter = 0;
-    space = 0;
 
     /**
      * Select a Category
      */
     function selectCategory() {
-        if (chosenCategory === randomWord[0]) {
+        if (chosenCategory === wordBank[0]) {
             console.log("\nThe chosen category is: Show");
-        } else if (chosenCategory === randomWord[1]) {
+        } else if (chosenCategory === wordBank[1]) {
             console.log("\nThe chosen category is: Character");
         }
-        console.log("The word is: " + word);
+        console.log("The word is: " + chosenWord);
     }
 
     /**
@@ -27,13 +24,13 @@ module.exports = function() {
         console.log("Welcome to Nickelodeon themed Hangman");
         console.log("=====================================");
 
-        randomWord = [
+        wordBank = [
             ["All That", "Hey Arnold", "Double Dare", "Invader ZIM", "Nickelodeon Guts", "Rugrats", "Hey Dude", "SpongeBob SquarePants", "Finders Keepers", "Nick Arcade", "Weinerville", "Rocket Power"],
             ["Alex Mack", "Doug Funnie", "Patti Mayonnaise", "GIR", "Dib", "Gaz", "Helga Pataki", "Tommy Pickles", "Chuckie Finster", "Reptar", "Ickis", "Oblina", "Krumm", "Rocko", "Heffer Wolfe", "Ren", "Stimpy", "Daggett Doofus", "Norbert Foster"]
         ];
 
-        chosenCategory = randomWord[Math.floor(Math.random() * randomWord.length)];
-        word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
+        chosenCategory = wordBank[Math.floor(Math.random() * wordBank.length)];
+        chosenWord = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
 
         selectCategory();
     }
