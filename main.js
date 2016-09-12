@@ -2,10 +2,8 @@
  * Variables
  */
 var inquirer = require('inquirer');
-
-var wordSelect = require('./game.js');
-var wordDisplay = require('./letters.js');
-var wordCheck = require('./word.js');
+var game = require('./game.js');
+var letters = require('./letters.js');
 
 var guess;
 blank = [];
@@ -14,7 +12,8 @@ tries = 10;
 counter = 0;
 space = 0;
 
-wordSelect.selectWord();
+console.log(game);
+game.selectWord();
 
 /**
  * Display remaining tries for incorrect guesses
@@ -34,7 +33,7 @@ function triesRemaining() {
     }
 }
 
-currentWord = new wordDisplay.hangmanWord(chosenWord);
+currentWord = new letters.hangmanWord(chosenWord);
 
 triesRemaining();
 currentWord.print();
