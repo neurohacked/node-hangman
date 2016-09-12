@@ -16,9 +16,6 @@ space = 0;
 
 wordSelect.selectWord();
 
-currentWord = new wordDisplay.hangmanWord(chosenWord);
-wordPieces = currentWord.letters;
-
 /**
  * Display remaining tries for incorrect guesses
  */
@@ -36,6 +33,8 @@ function triesRemaining() {
         }
     }
 }
+
+currentWord = new wordDisplay.hangmanWord(chosenWord);
 
 triesRemaining();
 currentWord.print();
