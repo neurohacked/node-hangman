@@ -29,11 +29,11 @@ var wordDisplay = require('./letters.js');
 //
 // }
 
-exports.wordDisplay.hangmanWord.prototype.isFinished = function() {
+wordDisplay.hangmanWord.prototype.isFinished = function() {
     return this.remainingPieces.length === 0;
 };
 
-exports.wordDisplay.hangmanWord.prototype.progress = function(callback) {
+wordDisplay.hangmanWord.prototype.progress = function(callback) {
     var self = this;
     var nextLetter = this.letters.shift();
     if (nextLetter.charAt(0) === "_") {
@@ -55,7 +55,7 @@ exports.wordDisplay.hangmanWord.prototype.progress = function(callback) {
     console.log('Counter: ' + counter);
 };
 
-exports.wordDisplay.hangmanWord.hangmanWordisplay.prototype.check = function(callback) {
+wordDisplay.hangmanWord.prototype.check = function(callback) {
     var self = this;
     if (this.isFinished()) {
         callback();

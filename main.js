@@ -7,7 +7,7 @@ var wordSelect = require('./game.js');
 var wordDisplay = require('./letters.js');
 var wordCheck = require('./word.js');
 
-guess; // User guess
+var guess;
 blank = [];
 guesses = [];
 tries = 10;
@@ -38,28 +38,4 @@ function triesRemaining() {
 }
 
 triesRemaining();
-// wordCheck();
-
-
-// wordDisplay.prototype.isFinished = function() {
-//     return this.remainingPieces.length === 0;
-// };
-
-// wordDisplay.hangmanWord.prototype.check = function(callback) {
-//     var self = this;
-//     if (this.isFinished()) {
-//         callback();
-//     } else {
-//         this.progress(function() {
-//             self.check(callback);
-//         });
-//     }
-// };
-//
-//
-// currentWord.check(function() {
-// currentWord.print();
-// });
-
-
 currentWord.print();
