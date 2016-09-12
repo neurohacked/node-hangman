@@ -18,28 +18,28 @@ space = 0;
 function triesRemaining() {
     if (tries > 1) {
         console.log("\nYou have " + tries + " tries remaining.");
-    } else {
+    } else if (tries === 1){
         console.log("\nYou have " + tries + " try remaining.");
-    }
-    if (tries < 1) {
+    } else {
         console.log("Game Over! You did not guess the word correctly.");
     }
-    for (var i = 0; i < blankLetters.length; i++) {
-        if (counter + space === blankLetters.length) {
+    for (var i = 0; i < blank.length; i++) {
+        if (counter + space === blank.length) {
             console.log("Congratulations! You Win!");
         }
     }
 }
 
+
+wordSelect();
+wordDisplay();
+triesRemaining();
+
+
 // wordDisplay.prototype.isFinished = function() {
-//     return hangmanWord.remainingPieces.length === 0;
-// };
-
-
-// wordDisplay.hangmanWord.prototype.isFinished = function() {
 //     return this.remainingPieces.length === 0;
 // };
-//
+
 // wordDisplay.hangmanWord.prototype.check = function(callback) {
 //     var self = this;
 //     if (this.isFinished()) {
@@ -53,16 +53,9 @@ function triesRemaining() {
 //
 //
 // currentWord.check(function() {
-//     currentWord.print();
+    // currentWord.print();
 // });
 
-// wordDisplay.hangmanWord.prototype.print = function() {
-//     console.log(letters.join(' '));
-// };
 
-// var currentWord = new hangmanWord(chosenWord);
+currentWord.print();
 
-
-wordSelect();
-wordDisplay();
-triesRemaining();
