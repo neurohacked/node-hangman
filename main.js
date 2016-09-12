@@ -5,12 +5,19 @@ var inquirer = require('inquirer');
 
 var wordSelect = require('./game.js');
 var wordDisplay = require('./letters.js');
+var wordCheck = require('./word.js');
 
-var guess; // User guess
-
+guess; // User guess
+blank = [];
+guesses = [];
 tries = 10;
 counter = 0;
 space = 0;
+
+wordSelect.selectWord();
+
+currentWord = new wordDisplay.hangmanWord(chosenWord);
+wordPieces = currentWord.letters;
 
 /**
  * Display remaining tries for incorrect guesses
@@ -18,7 +25,7 @@ space = 0;
 function triesRemaining() {
     if (tries > 1) {
         console.log("\nYou have " + tries + " tries remaining.");
-    } else if (tries === 1){
+    } else if (tries === 1) {
         console.log("\nYou have " + tries + " try remaining.");
     } else {
         console.log("Game Over! You did not guess the word correctly.");
@@ -30,10 +37,8 @@ function triesRemaining() {
     }
 }
 
-
-wordSelect();
-wordDisplay();
 triesRemaining();
+// wordCheck();
 
 
 // wordDisplay.prototype.isFinished = function() {
@@ -53,9 +58,8 @@ triesRemaining();
 //
 //
 // currentWord.check(function() {
-    // currentWord.print();
+// currentWord.print();
 // });
 
 
 currentWord.print();
-

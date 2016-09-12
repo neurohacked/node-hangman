@@ -1,25 +1,19 @@
-/**
- * Word Select
- */
-module.exports = function() {
-    guesses = [];
-
     /**
      * Select a Category
      */
-    function selectCategory() {
+    selectCategory = function() {
         if (chosenCategory === wordBank[0]) {
             console.log("\nThe chosen category is: Show");
         } else if (chosenCategory === wordBank[1]) {
             console.log("\nThe chosen category is: Character");
         }
         console.log("The word is: " + chosenWord);
-    }
+    };
 
     /**
      * Choose a word and start the game
      */
-    function selectWord() {
+    exports.selectWord = function() {
         console.log("\n=====================================");
         console.log("Welcome to Nickelodeon themed Hangman");
         console.log("=====================================");
@@ -33,6 +27,4 @@ module.exports = function() {
         chosenWord = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
 
         selectCategory();
-    }
-    selectWord();
-};
+    };
