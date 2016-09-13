@@ -12,7 +12,6 @@ tries = 10;
 counter = 0;
 space = 0;
 
-console.log(game);
 game.selectWord();
 
 /**

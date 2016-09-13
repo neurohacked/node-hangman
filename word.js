@@ -29,8 +29,6 @@ var letters = require('./letters.js');
     //
     // }
 
-    console.log(letters);
-
     letters.prototype.isFinished = function() {
         return this.remainingPieces.length === 0;
     };
