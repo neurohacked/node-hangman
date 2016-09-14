@@ -1,6 +1,6 @@
 // Convert Word to Blanks
 
-var obfuscated = require('./letter.js');
+var conversion = require('./letter.js');
 
 /**
  * Check word against userChoice

@@ -1,6 +1,6 @@
 // Convert Word to Blanks
 
-var splitWord = require('./game.js');
+var word = require('./game.js');
 
 /**
  * Conversion of word to blanks
@@ -18,15 +18,11 @@ var conversion = function(){
 		}
 	};
 	this.printObfuscated = function() {
-		var covertWord = this.blankWord.join(' ');
-		console.log("\n" + covertWord + "\n");
+		var obfscWord = this.blankWord.join(' ');
+		console.log("\n" + obfscWord + "\n");
         console.log("Tries remaining:", tries);
 	};
 };
 
-var obfuscated = new conversion(splitWord);// Conversion Instance
-obfuscated.obfuscate(splitWord);
-obfuscated.printObfuscated();
-
-module.exports = obfuscated;
+module.exports = conversion;
 

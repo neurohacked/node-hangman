@@ -37,6 +37,5 @@ var word = function() {
 
     category();
 };
-word();
 
-module.exports = splitWord;
+module.exports = word;

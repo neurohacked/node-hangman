@@ -1,8 +1,3 @@
-//THEME IS CITIES OF THE WORLD;
-//contain the logic of your app. Running it in Terminal start the game. The app should end when a player guesses the correct word or runs out of guesses.
-//if statements
-//USE INQUIRER FOR PROMPTING. Don't forget toUpperCase();
-
 var audit = require('./word.js');
 var inquirer = require('inquirer');
 var gameover = false;
@@ -29,18 +24,18 @@ var userPrompt = function() {
                 console.log("\nThat's okay, come again when you feel like playing.\n");
             }
         });
-    } else {
-        inquirer.prompt([{
-            name: "guess",
-            message: "Type a letter to guess the word."
-        }]).then(function(answers) {
-            guesses.push(answers.guess.toUpperCase());
-            console.log("\nYour Guesses: " + guesses);
-            var checkedLetter = new audit(splitWord, answers.guess);
-            checkedLetter.check();
-            userPrompt();
-        });
     }
+    inquirer.prompt([{
+        name: "guess",
+        message: "Type a letter to guess the word."
+    }]).then(function(answers) {
+        guesses.push(answers.guess.toUpperCase());
+        console.log("\nYour Guesses: " + guesses);
+        var checkedLetter = new audit(splitWord, answers.guess);
+        checkedLetter.check();
+        userPrompt();
+    });
+
 };
 
 console.log("Number of spaces:", space);
