@@ -29,11 +29,18 @@ var userPrompt = function() {
             name: "guess",
             message: "Type a letter to guess the word."
         }]).then(function(answers) {
-            guesses.push(answers.guess.toUpperCase());
-            console.log("\nYour Guesses: " + guesses);
-            var checkedLetter = new audit(splitWord, answers.guess);
-            checkedLetter.check();
-            userPrompt();
+            if (guesses.find(function(item) {
+                    return item === answers.guess.toUpperCase();
+                })) {
+                    console.log("\nYou already guessed that letter, silly. Try again.\n");
+                userPrompt();
+            } else {
+                guesses.push(answers.guess.toUpperCase());
+                console.log("\nYour Guesses: " + guesses);
+                var checkedLetter = new audit(splitWord, answers.guess);
+                checkedLetter.check();
+                userPrompt();
+            }
         });
     }
 };
