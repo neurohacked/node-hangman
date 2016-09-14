@@ -24,18 +24,18 @@ var userPrompt = function() {
                 console.log("\nThat's okay, come again when you feel like playing.\n");
             }
         });
+    } else {
+        inquirer.prompt([{
+            name: "guess",
+            message: "Type a letter to guess the word."
+        }]).then(function(answers) {
+            guesses.push(answers.guess.toUpperCase());
+            console.log("\nYour Guesses: " + guesses);
+            var checkedLetter = new audit(splitWord, answers.guess);
+            checkedLetter.check();
+            userPrompt();
+        });
     }
-    inquirer.prompt([{
-        name: "guess",
-        message: "Type a letter to guess the word."
-    }]).then(function(answers) {
-        guesses.push(answers.guess.toUpperCase());
-        console.log("\nYour Guesses: " + guesses);
-        var checkedLetter = new audit(splitWord, answers.guess);
-        checkedLetter.check();
-        userPrompt();
-    });
-
 };
 
 console.log("Number of spaces:", space);
