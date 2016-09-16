@@ -30,16 +30,13 @@ var audit = function(word, inputChoice) {
         }
         console.log(lower);
         var j = (this.word.indexOf(lower));
-		if (j === -1) {
-			tries--;
-		}
+        if (j === -1) {
+            tries--;
+        }
     };
     this.wordFound = function() {
         if (this.lets.join('') === this.word) {
-            console.log('we found the word', this.lets.join(''), this.word);
             found = true;
-        } else {
-            console.log('we didnt find the word', this.lets.join(''), this.word);
         }
     };
     this.render = function() {
