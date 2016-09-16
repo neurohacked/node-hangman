@@ -12,9 +12,9 @@ var wordBank = [
  * Select a Category
  */
 var randomCategory = function() {
-    if (chosenCategory === wordBank[0]) {
+    if (randomizeWord.categorySelect === wordBank[0]) {
         currentCategory = "Show";
-    } else if (chosenCategory === wordBank[1]) {
+    } else if (randomizeWord.chosenCategory === wordBank[1]) {
         currentCategory = "Character";
     }
 };
@@ -22,11 +22,14 @@ var randomCategory = function() {
 /**
  * Choose a random word based on category
  */
-var randomWord = function() {
-    chosenCategory = wordBank[Math.floor(Math.random() * wordBank.length)];
-    chosenWord = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-
-    randomCategory();
+var randomizeWord = function(categorySelect, wordSelect) {
+    this.categorySelect = wordBank[Math.floor(Math.random() * wordBank.length)];
+    this.wordSelect = this.categorySelect[Math.floor(Math.random() * this.categorySelect.length)];
+    if (this.categorySelect === wordBank[0]) {
+        currentCategory = "Show";
+    } else if (this.categorySelect === wordBank[1]) {
+        currentCategory = "Character";
+    }
 };
 
-module.exports = randomWord;
+module.exports = randomizeWord;

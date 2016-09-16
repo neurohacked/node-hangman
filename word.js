@@ -1,11 +1,10 @@
 // Convert Word to Blanks
-var randomWord = require('./game.js');
 var obfuscateWord = require('./letter.js');
 
 /**
  * Check word against userChoice
  */
-var audit = function(word, inputChoice) {
+var auditWord = function(word, inputChoice) {
     this.word = word;
     this.lets = [];
     this.splitWord = word.split('');
@@ -36,12 +35,12 @@ var audit = function(word, inputChoice) {
     this.wordFound = function() {
         if (this.lets.join('') === this.word) {
             found = true;
+        } else {
         }
     };
     this.render = function() {
         return this.lets.join(' ');
     };
 };
-randomWord();
 
-module.exports = audit;
+module.exports = auditWord;
