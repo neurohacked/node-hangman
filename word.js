@@ -28,7 +28,6 @@ var audit = function(word, inputChoice) {
                 this.lets[i] = this.word[i].valueOf();
             }
         }
-        console.log(lower);
         var j = (this.word.indexOf(lower));
         if (j === -1) {
             tries--;

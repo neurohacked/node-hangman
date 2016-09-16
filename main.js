@@ -31,8 +31,8 @@ var userPrompt = function() {
             guesses.push(answers.guess.toUpperCase());
             console.log("\nYour Guesses: " + guesses);
             letFound = currentWord.check(answers.guess);
+            console.log("\nTries remaining:", tries);
             console.log("\n" + currentWord.render() + "\n\n");
-            console.log("Tries remaining:", tries);
             currentWord.wordFound();
             if (tries < 1 || found) {
                 gameover = true;
