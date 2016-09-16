@@ -11,31 +11,22 @@ var wordBank = [
 /**
  * Select a Category
  */
-var category = function() {
+var randomCategory = function() {
     if (chosenCategory === wordBank[0]) {
-        console.log("\nThe chosen category is: Show");
+        currentCategory = "Show";
     } else if (chosenCategory === wordBank[1]) {
-        console.log("\nThe chosen category is: Character");
+        currentCategory = "Character";
     }
-    console.log("The word is: " + chosenWord);
 };
 
 /**
  * Choose a random word based on category
  */
-var word = function() {
-    space = 0;
-    counter = 0;
-    tries = 10;
-    console.log("\n=====================================");
-    console.log("Welcome to Nickelodeon themed Hangman");
-    console.log("=====================================");
-
+var randomWord = function() {
     chosenCategory = wordBank[Math.floor(Math.random() * wordBank.length)];
     chosenWord = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-    splitWord = chosenWord.split('');
 
-    category();
+    randomCategory();
 };
 
-module.exports = word;
+module.exports = randomWord;

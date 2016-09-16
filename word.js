@@ -1,28 +1,51 @@
 // Convert Word to Blanks
-
-var obfuscated = require('./letter.js');
+var randomWord = require('./game.js');
+var obfuscateWord = require('./letter.js');
 
 /**
  * Check word against userChoice
  */
-var audit = function(splitWord, inputChoice) {
-    this.splitWord = splitWord;
+var audit = function(word, inputChoice) {
+    this.word = word;
+    this.lets = [];
+    this.splitWord = word.split('');
     this.inputChoice = inputChoice;
-    this.check = function() {
-        for (var i = 0; i < splitWord.length; i++) {
-            if (splitWord[i].valueOf() === inputChoice.toUpperCase() || splitWord[i].valueOf() === inputChoice.toLowerCase()) {
-                obfuscated.blankWord[i] = splitWord[i].valueOf();
-                counter++;
+    this.createBlanks = function() {
+        for (var i = 0; i < this.word.length; i++) {
+            var newLet = new obfuscateWord(this.word[i]);
+            if (this.word[i].valueOf() !== " ") {
+                this.lets.push(newLet.blank());
+            } else {
+                this.lets.push(newLet.space());
             }
         }
-        var j = (splitWord.indexOf(inputChoice));
-        console.log(j);
+    };
+    this.check = function(guessedLetter) {
+        var lower = guessedLetter.toLowerCase();
+        var upper = guessedLetter.toUpperCase();
+        for (var i = 0; i < this.lets.length; i++) {
+            if (this.word[i].valueOf() === lower || this.word[i].valueOf() === upper) {
+                this.lets[i] = this.word[i].valueOf();
+            }
+        }
+        console.log(lower);
+        var j = (this.word.indexOf(lower));
 		if (j === -1) {
 			tries--;
 		}
-        obfuscated.printObfuscated();
-        console.log("Counter:",counter);
+    };
+    this.wordFound = function() {
+        if (this.lets.join('') === this.word) {
+            console.log('we found the word', this.lets.join(''), this.word);
+            found = true;
+        } else {
+            console.log('we didnt find the word', this.lets.join(''), this.word);
+        }
+    };
+    this.render = function() {
+        return this.lets.join(' ');
     };
 };
+randomWord();
 
 module.exports = audit;
