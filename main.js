@@ -10,7 +10,6 @@ var startGame = function() {
     console.log("Welcome to Nickelodeon themed Hangman");
     console.log("=====================================");
     console.log("\nThe chosen category is:", currentCategory);
-    console.log(chosenWord);
     console.log("\nTries remaining:", tries);
     currentWord = new audit(chosenWord);
     currentWord.createBlanks();
