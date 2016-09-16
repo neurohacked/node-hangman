@@ -17,7 +17,7 @@ var startGame = function() {
     console.log("\nTries remaining:", tries);
     currentWord = new auditWord(randomWord);
     currentWord.createBlanks();
-    console.log("\n" + currentWord.render() + "\n\n");
+    console.log("\n" + currentWord.render() + "\n");
     userPrompt();
 };
 
@@ -46,7 +46,6 @@ var playAgain = function() {
 var userPrompt = function() {
     currentWord.wordFound();
     if (tries < 1 || found) {
-        console.log("Done");
         gameover = true;
         playAgain();
     } else {
@@ -64,7 +63,7 @@ var userPrompt = function() {
                 console.log("\nYour Guesses: " + guesses);
                 letFound = currentWord.check(answers.guess);
                 console.log("\nTries remaining:", tries);
-                console.log("\n" + currentWord.render() + "\n\n");
+                console.log("\n" + currentWord.render() + "\n");
                 userPrompt();
             }
         });
